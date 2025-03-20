@@ -1,0 +1,28 @@
+.mainFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 45px 0;
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 45px 20px;
+    font-size: 16px;
+    font-weight: 500;
+
+    &.copyright {
+      font-size: 14px;
+      font-weight: 400;
+      span {
+        color: #009688;
+      }
+      // &:last-child {
+      //   text-align: right;
+      // }
+    }
+    &.logo {
+      font-size: 25px;
+    }
+  }
+}

@@ -1,0 +1,84 @@
+const filmsListMocks = [
+  {
+    id: 1,
+    title: "Inception",
+    year: 2010,
+    country: "USA",
+    genre: ["Action", "Science fiction"],
+    director: "John Singleton",
+    rating: 8.8,
+    duration: "2h 28m",
+    premiere: "June 13, 2023",
+    actors: [
+      "Cole Hauser",
+      "David Harbour",
+      "Jennifer Connelly",
+      "Miles Teller",
+    ],
+    poster: " https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+    description:
+      "A thief who enters the dreams of others to steal secrets from their subconscious.",
+  },
+  {
+    id: 2,
+    title: "Interstellar",
+    year: 2014,
+    country: "USA",
+    genre: ["Adventure", "Drama", "Science fiction"],
+    director: "John Singleton",
+    rating: 8.6,
+    duration: "2h 49m",
+    premiere: "June 13, 2023",
+    actors: [
+      "Cole Hauser",
+      "David Harbour",
+      "Jennifer Connelly",
+      "Miles Teller",
+    ],
+    poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    description:
+      "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+  },
+  {
+    id: 3,
+    title: "The Dark Knight",
+    year: 2008,
+    country: "USA",
+    genre: ["Action", "Crime", "Drama"],
+    director: "John Singleton",
+    rating: 9.0,
+    duration: "2h 32m",
+    premiere: "June 13, 2023",
+    actors: [
+      "Cole Hauser",
+      "David Harbour",
+      "Jennifer Connelly",
+      "Miles Teller",
+    ],
+    poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    description:
+      "When the menace known as the Joker emerges, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
+  },
+  {
+    id: 4,
+    title: "Avatar",
+    year: 2009,
+    country: "USA",
+    genre: ["Action", "Adventure", "Fantasy"],
+    director: "John Singleton",
+    rating: 7.8,
+    duration: "2h 42m",
+    premiere: "June 13, 2023",
+    actors: [
+      "Cole Hauser",
+      "David Harbour",
+      "Jennifer Connelly",
+      "Miles Teller",
+    ],
+    poster: "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
+    description:
+      "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
+  },
+];
+
+export default filmsListMocks;

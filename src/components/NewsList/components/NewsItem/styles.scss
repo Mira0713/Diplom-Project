@@ -1,0 +1,65 @@
+.moviesItem {
+  max-height: 360px;
+  height: 360px;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: row;
+  //flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 24px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  color: #ffffff;
+  &:hover {
+    background-color: #4c4c52;
+    .title {
+      color: #009688;
+    }
+  }
+  img {
+    height: 360px;
+    width: auto;
+    flex-shrink: 0;
+    border-radius: 5px;
+  }
+  .moviesItemContent {
+    font-size: 16px;
+    flex: 1; // Займає всю доступну ширину
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: 25px;
+      font-weight: 400;
+      position: relative;
+      transition: all 0.2s ease-in-out;
+      margin-bottom: 20px;
+    }
+    .quality {
+      font-size: 12px;
+      width: 18px;
+      color: #c7c7c7;
+      padding: 1px 4px 2px 5px;
+      border: 1px solid #c7c7c7;
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    .moviesItemDetails {
+      p {
+        margin-bottom: 10px;
+      }
+      span {
+        color: #009688;
+      }
+    }
+    .moviesItemDescription {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+}
