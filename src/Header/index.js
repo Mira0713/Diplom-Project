@@ -1,7 +1,7 @@
 import "./styles.scss";
 import { NavLink } from "react-router-dom";
 import { routeMain as routeMainPage } from "pages/MainPage";
-import { routeMain as routeContacts } from "pages/Contacts";
+import { routeMain as routeLogin } from "pages/Authentication";
 import { routeMain as routeFilmsListPage } from "pages/FilmsListPage";
 
 const Header = () => {
@@ -24,7 +24,7 @@ const Header = () => {
           Бюргер (все что в бургере)
         </NavLink>
         <NavLink
-          to={routeContacts()}
+          to={routeLogin()}
           end
           className={({ isActive }) => (isActive ? "linkActive" : "")}
         >

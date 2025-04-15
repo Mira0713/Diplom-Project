@@ -16,6 +16,7 @@ const filmsListMocks = [
       "Miles Teller",
     ],
     poster: " https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg",
+    trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar",
     description:
       "A thief who enters the dreams of others to steal secrets from their subconscious.",
   },
@@ -36,6 +37,7 @@ const filmsListMocks = [
       "Miles Teller",
     ],
     poster: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg",
+    trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar",
     description:
       "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
   },
@@ -56,6 +58,7 @@ const filmsListMocks = [
       "Miles Teller",
     ],
     poster: "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+    trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar",
     description:
       "When the menace known as the Joker emerges, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.",
   },
@@ -76,6 +79,7 @@ const filmsListMocks = [
       "Miles Teller",
     ],
     poster: "https://image.tmdb.org/t/p/w500/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
+    trailer: "https://www.youtube.com/watch?v=d9MyW72ELq0&ab_channel=Avatar",
     description:
       "A paraplegic Marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home.",
   },

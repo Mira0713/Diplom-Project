@@ -1,0 +1,52 @@
+.authenticationForm {
+  .authenticationTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  .authenticationDescription {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  width: 420px;
+  .usersInputs {
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: column wrap;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      height: 40px;
+      padding: 8px 20px;
+      box-sizing: border-box; // Враховує padding і border у heights
+      background-color: #28282d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+  }
+  .authenticationFormButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    button {
+      width: 100% !important;
+      max-width: max-content;
+      border-color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      color: #ffffff;
+
+      font-size: 16px;
+      background-color: #009688;
+      box-shadow: 0px 0px 16px rgba(0, 150, 136, 0.6);
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 7px 25px;
+      transition: all 0.5s ease;
+    }
+  }
+}

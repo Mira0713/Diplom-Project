@@ -4,7 +4,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Header from "Header";
 import Footer from "Footer";
 import MainPage, { routeMain as routeMainPage } from "pages/MainPage";
-import Contacts, { routeMain as routeContacts } from "pages/Contacts";
+import Contacts, { routeMain as routeContacts } from "pages/Authentication";
 import FilmsDetail, { routeMain as routeFilmsDetail } from "pages/FilmsDetail";
 import FilmsListPage, {
   routeMain as routeFilmsListPage,

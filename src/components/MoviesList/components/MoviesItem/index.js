@@ -3,12 +3,14 @@ import { NavLink } from "react-router-dom";
 
 import { routeMain as routeFilmsDetail } from "pages/FilmsDetail";
 
-const NewsItem = (props) => (
+const MoviesItem = (props) => (
   <NavLink to={routeFilmsDetail(props.item.id)} className="moviesItem">
     <img src={props.item.poster} alt={props.item.title} />
     <div className="moviesItemContent">
       <div className="title">{props.item.title}</div>
-      <div className="quality">HD</div>
+      <div className="quality">
+        <span>HD</span>
+      </div>
 
       <div className="moviesItemDetails">
         <p>
@@ -37,4 +39,4 @@ const NewsItem = (props) => (
   </NavLink>
 );
 
-export default NewsItem;
+export default MoviesItem;

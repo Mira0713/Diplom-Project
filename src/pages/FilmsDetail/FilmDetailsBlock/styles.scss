@@ -1,0 +1,29 @@
+.moviesItem {
+  max-width: 555px;
+}
+.filmDetailsBlock {
+  width: 1140px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .quality {
+    display: flex;
+    .rating {
+      display: flex;
+      .star {
+        margin-right: 10px;
+        color: #f9ab00;
+      }
+      margin-right: 10px;
+    }
+  }
+  video {
+    width: 555px;
+    height: 100%;
+    border-radius: 5px;
+  }
+  .moviesItem {
+    padding: 0;
+    gap: 24px;
+  }
+}

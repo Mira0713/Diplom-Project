@@ -22,7 +22,7 @@
   }
   img {
     height: 360px;
-    width: auto;
+    width: 260px;
     flex-shrink: 0;
     border-radius: 5px;
   }
@@ -36,15 +36,18 @@
       font-weight: 400;
       position: relative;
       transition: all 0.2s ease-in-out;
-      margin-bottom: 20px;
     }
     .quality {
-      font-size: 12px;
-      width: 18px;
-      color: #c7c7c7;
-      padding: 1px 4px 2px 5px;
-      border: 1px solid #c7c7c7;
-      border-radius: 2px;
+      span {
+        font-size: 12px;
+        width: 18px;
+        color: #c7c7c7;
+        padding: 1px 4px 2px 5px;
+        border: 1px solid #c7c7c7;
+        border-radius: 2px;
+        text-align: center;
+      }
+      margin-top: 20px;
       margin-bottom: 20px;
     }
 
@@ -60,6 +63,10 @@
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      display: -webkit-box;
+      -webkit-line-clamp: 4; // количество строк
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
   }
 }

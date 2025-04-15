@@ -3,7 +3,7 @@ import routeMain from "./routes";
 
 import PageTitle from "components/PageTitle";
 
-import NewsList from "components/NewsList";
+import MoviesList from "components/MoviesList";
 
 import filmsListMocks from "fixtures/filmsListMocks";
 
@@ -11,7 +11,7 @@ const FilmsListPage = () => {
   return (
     <section className="mainPage">
       <PageTitle title={<h2>Бургер</h2>} />
-      {filmsListMocks.length > 0 && <NewsList list={filmsListMocks} />}
+      {filmsListMocks.length > 0 && <MoviesList list={filmsListMocks} />}
     </section>
   );
 };

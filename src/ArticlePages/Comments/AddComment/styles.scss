@@ -1,0 +1,45 @@
+.commentForm {
+  .commentTitle {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .commentDescription {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+  width: 1140px;
+  .usersInputs {
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    input {
+      flex: 1;
+      height: 40px;
+      padding: 8px 20px;
+      box-sizing: border-box; // Враховує padding і border у heights
+      background-color: #28282d;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+    }
+  }
+  textarea {
+    width: 100%;
+    min-height: 200px;
+    padding: 8px 20px;
+    padding-top: 15px;
+    box-sizing: border-box;
+    background-color: #28282d;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    resize: none;
+  }
+  .saveData {
+    .saveDataChekbox {
+      border-radius: 100%;
+      margin-right: 10px;
+      margin-top: 15px;
+    }
+  }
+}
