@@ -1,8 +1,24 @@
+import { registration, login } from "../../../http/userApi";
 import "./styles.scss";
 import { useState } from "react";
 
-const Authorization = ({ title }) => {
+const Authorization = () => {
   const [activeTab, setActiveTab] = useState("Auth");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const click = async (e) => {
+    console.log(e);
+    e.preventDefault();
+    if (activeTab === "Auth") {
+      const response = await login(name, email, password);
+      console.log(response);
+    } else {
+      const response = await registration(name, email, password);
+      console.log(response);
+    }
+  };
   return (
     <div className="authentication">
       <form className="authenticationForm">
@@ -14,13 +30,27 @@ const Authorization = ({ title }) => {
             Required fields are marked *
           </div>
           <div className="usersInputs">
-            <input type="text" id="username" placeholder="login*" />
-            <input type="email" id="email" placeholder="example@example.com*" />
+            <input
+              type="text"
+              id="username"
+              placeholder="login*"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="example@example.com*"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
             <input
               type="password"
               id="password"
               placeholder="Password*"
               required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             {activeTab === "Registr" ? (
               <input
@@ -33,7 +63,7 @@ const Authorization = ({ title }) => {
           </div>
         </div>
         <div className="authenticationFormButton">
-          <button className="">
+          <button onClick={click}>
             {activeTab === "Auth" ? "Authorization" : "Registration"}
           </button>
         </div>

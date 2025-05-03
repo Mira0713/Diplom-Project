@@ -9,6 +9,9 @@ import FilmsDetail, { routeMain as routeFilmsDetail } from "pages/FilmsDetail";
 import FilmsListPage, {
   routeMain as routeFilmsListPage,
 } from "pages/FilmsListPage";
+import AdminPanelPage, {
+  routeMain as routeAdminPanelPage,
+} from "pages/AdminPanelPage";
 
 const AppContent = () => {
   return (
@@ -20,6 +23,7 @@ const AppContent = () => {
           <Route path={routeContacts()} element={<Contacts />} />
           <Route path={routeFilmsDetail()} element={<FilmsDetail />} />
           <Route path={routeFilmsListPage()} element={<FilmsListPage />} />
+          <Route path={routeAdminPanelPage()} element={<AdminPanelPage />} />
           <Route path="*" element={<Navigate to={routeMainPage()} />} />
         </Routes>
       </main>

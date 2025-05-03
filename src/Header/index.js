@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { routeMain as routeMainPage } from "pages/MainPage";
 import { routeMain as routeLogin } from "pages/Authentication";
 import { routeMain as routeFilmsListPage } from "pages/FilmsListPage";
+import { routeMain as routeAdminPanelPage } from "pages/AdminPanelPage";
 
 const Header = () => {
   return (
@@ -29,6 +30,13 @@ const Header = () => {
           className={({ isActive }) => (isActive ? "linkActive" : "")}
         >
           Login
+        </NavLink>
+        <NavLink // TODO ДОБАВИТЬ ФУНКЦИЮ ПРОВЕРКИ РОЛИ ЮЗЕРА И ЧТОБЫ ЮЗЕР ПО РОУТУ ТОЖЕ НЕ СМОГ ЗАЙТИ
+          to={routeAdminPanelPage()}
+          end
+          className={({ isActive }) => (isActive ? "linkActive" : "")}
+        >
+          Admin
         </NavLink>
       </nav>
     </header>

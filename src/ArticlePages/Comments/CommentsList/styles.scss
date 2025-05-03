@@ -1,0 +1,50 @@
+// .commentsList {
+//   padding: 20px;
+//   border: 1px;
+//   border-style: solid none solid none;
+//   .userName {
+//     margin-bottom: 10px;
+//   }
+//   .commentDescription {
+//     font-size: 14px;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//   }
+// }
+
+.commentsList {
+  padding: 20px;
+  border: 1px;
+  border-style: solid none solid none;
+
+  .commentItem {
+    margin-bottom: 15px;
+
+    .userInfo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .userAvatar {
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        background-color: #e0e0e0;
+        margin-right: 10px; // Отступ между аватаром и именем
+        flex-shrink: 0;
+      }
+
+      .userName {
+        margin-bottom: 0; // Убираем старый отступ
+      }
+    }
+
+    .commentDescription {
+      font-size: 14px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 42px; // 32px (аватар) + 10px (gap)
+    }
+  }
+}

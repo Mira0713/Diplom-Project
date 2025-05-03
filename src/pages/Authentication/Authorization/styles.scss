@@ -19,7 +19,7 @@
     input {
       flex: 1;
       height: 40px;
-      padding: 8px 20px;
+      padding: 8px 12px;
       box-sizing: border-box; // Враховує padding і border у heights
       background-color: #28282d;
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -51,6 +51,7 @@
     }
   }
   .activeTab {
+    margin-top: 15px;
     cursor: pointer;
     &:hover {
       transition: all 0.5s ease;
