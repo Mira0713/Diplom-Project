@@ -1,13 +1,34 @@
+import { useState, useEffect } from "react";
+import { getAverageRating } from "../../../http/ratingApi";
 import "../../../components/MoviesList/components/MoviesItem/styles.scss";
 import "./styles.scss";
 
 const FilmDetailsBlock = ({ movie }) => {
-  if (!movie) return <p>Movie not found</p>;
+  // const [averageRating, setAverageRating] = useState(0);
+  // const [isLoading, setIsLoading] = useState(false);
 
+  // useEffect(() => {
+  //   const fetchRatingData = async () => {
+  //     try {
+  //       // setIsLoading(true);
+
+  //       const [averageData] = await Promise.all([getAverageRating(movie.id)]);
+
+  //       setAverageRating(averageData.average);
+  //     } catch (error) {
+  //       console.error("Ошибка загрузки рейтингов:", error);
+  //     } finally {
+  //       //setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchRatingData();
+  // }, [movie.id]);
+
+  if (!movie) return <p>Movie not found</p>;
   const getGenres = () => {
     if (!movie) return "No genres";
 
-    // Проверяем разные возможные форматы данных
     if (Array.isArray(movie.genres)) {
       return movie.genres.map((g) => g?.name || "Unknown").join(", ");
     }
@@ -29,26 +50,21 @@ const FilmDetailsBlock = ({ movie }) => {
     return "No actors information";
   };
   const getPosterUrl = (posterPath) => {
-    // Если нет постера или путь пустой
     if (!posterPath || posterPath.trim() === "") {
       return "/default-poster.jpg";
     }
 
-    // Если URL уже абсолютный (http/https) или data URL
     if (/^(https?:|\/\/|data:image)/.test(posterPath)) {
       return posterPath;
     }
 
-    // Обработка относительных путей
     const baseUrl = process.env.REACT_APP_API_URL || "";
 
-    // Удаляем лишние слэши при конкатенации URL
     return `${baseUrl.replace(/\/+$/, "")}/${posterPath.replace(/^\/+/, "")}`;
   };
   const getTrailer = () => {
     if (!movie.trailer) return null;
 
-    // Если trailer это YouTube URL
     if (
       movie.trailer.includes("youtube.com") ||
       movie.trailer.includes("youtu.be")
@@ -65,11 +81,10 @@ const FilmDetailsBlock = ({ movie }) => {
       );
     }
 
-    // Если это прямой видеофайл
     return (
       <video controls>
         <source src={movie.trailer} type="video/mp4" />
-        Простите, но ваш браузер не поддерживает встроенные видео.
+        Sorry, but your browser does not support embedded videos.
       </video>
     );
   };
@@ -89,9 +104,9 @@ const FilmDetailsBlock = ({ movie }) => {
         <div className="moviesItemContent">
           <div className="title">{movie.title}</div>
           <div className="quality">
-            <div className="rating">
+            <div className="ratingSmall">
               <div className="star">★</div>
-              {movie.rating}
+              {movie.average_rating.toFixed(1)}
             </div>
             <span>HD</span>
           </div>
@@ -104,11 +119,11 @@ const FilmDetailsBlock = ({ movie }) => {
               Country: <span>{movie.country}</span>
             </p>
             <p>
-              Genres: <span> {getGenres()}</span> {/* movie.genre.join(", ") */}
+              Genres: <span> {getGenres()}</span>
             </p>
             <p>
               Running time:
-              <span> {movie.duration ? `${movie.duration} h` : "N/A"}</span>
+              <span> {movie.duration ? `${movie.duration} min` : "N/A"}</span>
             </p>
             <p>
               Premiere: <span> {movie.premiere}</span>
@@ -117,15 +132,12 @@ const FilmDetailsBlock = ({ movie }) => {
               Director: <span> {movie.director}</span>
             </p>
             <p>
-              Actors: <span>{getActors()}</span> {/* movie.actors.join(", ") */}
+              Actors: <span>{getActors()}</span>
             </p>
           </div>
         </div>
       </div>
-      {/* <video controls src={movie.trailer}>
-        Простите, но ваш браузер не поддерживает встроенные видео.
-      </video> */}
-      {getTrailer()}
+      <div className="moviesTrailer">{getTrailer()}</div>
     </div>
   );
 };

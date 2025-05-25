@@ -1,0 +1,229 @@
+.movies-carousel-section {
+  padding: 20px 0;
+  margin: 30px 0;
+
+  .carousel-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fff;
+    padding-left: 15px;
+  }
+
+  .movie-card {
+    display: block;
+    margin: 0 10px;
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: #fff;
+    height: 100%;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      z-index: 2;
+      background-color: rgba(0, 150, 136, 0.6);
+
+      .movie-genres-full {
+        opacity: 1;
+        max-height: 100px;
+        padding-top: 5px;
+      }
+    }
+    &:hover {
+      .movie-meta {
+        .movie-genre {
+          white-space: normal; // Разрешаем перенос строк
+          overflow: visible; // Показываем все содержимое
+          text-overflow: clip; // Убираем многоточие
+          display: inline-block; // Для правильного переноса
+        }
+      }
+    }
+  }
+
+  .movie-poster {
+    position: relative;
+    height: 0;
+    padding-bottom: 150%;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 150, 136, 0);
+      transition: background-color 0.3s ease;
+      z-index: 1;
+    }
+
+    .playIcon {
+      width: 64px;
+      height: 64px;
+      min-width: 64px;
+      min-height: 64px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      opacity: 0;
+      z-index: 2;
+      color: white;
+      font-size: 50px;
+      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+      transition: all 0.3s ease;
+    }
+
+    // play icon effects
+    &:hover {
+      img {
+        filter: brightness(0.9);
+      }
+
+      &::after {
+        background-color: rgba(0, 150, 136, 0.6);
+      }
+
+      .playIcon {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .movie-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #00c030;
+      color: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-weight: bold;
+      z-index: 1;
+    }
+  }
+
+  .movie-info {
+    padding: 15px;
+    position: relative;
+
+    .movie-title {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      transition: color 0.2s ease;
+    }
+
+    .movie-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; // Добавляем выравнивание по центру
+      font-size: 14px;
+      color: #aaa;
+      white-space: nowrap; // Запрещаем перенос текста
+      overflow: hidden; // Скрываем выходящий за пределы контент
+
+      .movie-rating {
+        color: #ffc107;
+        flex-shrink: 0; // Запрещаем сжатие элемента
+        margin-right: 8px; // Добавляем отступ
+      }
+
+      .movie-genre {
+        text-overflow: ellipsis; // Добавляем многоточие если текст не помещается
+        overflow: hidden;
+        white-space: nowrap;
+        flex-grow: 1; // Занимаем все доступное пространство
+        transition: all 0.3s ease;
+      }
+    }
+
+    .movie-genres-container {
+      position: relative;
+      margin-top: 8px;
+    }
+
+    .movie-genres-preview {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-size: 13px;
+      color: #b3b3b3;
+      height: 18px;
+    }
+
+    .movie-genres-full {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      max-height: 0;
+      font-size: 13px;
+      color: #b3b3b3;
+      transition: all 0.3s ease;
+      background: rgba(30, 30, 30, 0.9);
+      width: 100%;
+      padding: 0 5px;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+  }
+
+  // Карусель
+  .react-multi-carousel-track {
+    align-items: stretch;
+  }
+
+  .react-multi-carousel-item {
+    padding: 5px;
+    transition: transform 0.3s ease;
+    height: auto;
+  }
+
+  // Стрелки карусели
+  .react-multiple-carousel__arrow {
+    border-radius: 6px !important;
+    background: rgba(0, 150, 136, 0.8); // Основной цвет с прозрачностью
+    border: 1px solid #009688; // Граница того же цвета
+    min-width: 35px;
+    min-height: 35px;
+    z-index: 1;
+    transition: all 0.3s ease;
+
+    &:hover {
+      // background-color: rgb(43, 43, 49);
+      background-color: rgba(
+        43,
+        43,
+        49,
+        0.8
+      ); // Полная непрозрачность при наведении
+      border-color: #009688;
+      transform: scale(1.1);
+    }
+
+    &::before {
+      color: white;
+      font-size: 16px;
+      text-shadow: 0 0 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+}

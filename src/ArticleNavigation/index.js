@@ -3,7 +3,7 @@ import Description from "ArticlePages/Description";
 import Comments from "ArticlePages/Comments";
 import { useState } from "react";
 
-const ArticleNavigation = ({ movie }) => {
+const ArticleNavigation = ({ movie, loadMovie = Function }) => {
   const [activeTab, setActiveTab] = useState("Description");
   //console.log(movie);
   return (
@@ -25,7 +25,7 @@ const ArticleNavigation = ({ movie }) => {
       {activeTab === "Description" ? (
         <Description movie={movie} />
       ) : (
-        <Comments />
+        <Comments loadMovie={loadMovie} />
       )}
     </section>
   );

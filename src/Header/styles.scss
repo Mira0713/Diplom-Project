@@ -9,7 +9,16 @@
     font-weight: 700;
   }
   nav {
+    display: flex;
+    align-items: baseline;
+
+    .profilBurger,
     a {
+      padding: 8px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s;
+
+      cursor: pointer;
       margin-left: 35px;
       font-size: 18px;
       font-weight: 400;
@@ -20,6 +29,63 @@
       &.first-child {
         margin-left: 0;
       }
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+    .profil {
+      visibility: hidden;
+    }
+    .profil.active {
+      visibility: visible;
+    }
+  }
+
+  .profile-container {
+    position: relative;
+    display: inline-block;
+    // position: relative;
+    // display: inline-flex; // Изменено с inline-block
+    // align-items: center; // Добавлено для вертикального выравнивания
+    // height: 100%;
+  }
+
+  .profilBurger {
+    cursor: pointer;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    // display: inline-flex; // Добавлено
+    // align-items: center; // Добавлено
+    // height: 100%;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+
+  .profile-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 300px;
+    background: #28282d;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    margin-top: 5px;
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
 }

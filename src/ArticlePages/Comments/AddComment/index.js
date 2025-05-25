@@ -119,7 +119,10 @@ const AddComment = ({ onCommentAdded }) => {
           </label>
         </div>
       </div>
-      <button type="submit">Post Comment</button>
+      <div className="commentButton">
+        <button type="submit">Post Comment</button>
+      </div>
+
       {error && <div className="error">{error}</div>}
     </form>
   );

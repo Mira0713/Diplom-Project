@@ -1,32 +1,5 @@
 import { $authHost } from "./index";
 
-// export const createMovie = async (movieData) => {
-//   try {
-//     const formData = new FormData();
-//     Object.entries(movieData).forEach(([key, value]) => {
-//       if (key === "genres" && Array.isArray(value)) {
-//         formData.append(key, JSON.stringify(value)); // масив жанрів як JSON
-//       } else {
-//         formData.append(key, value);
-//       }
-//     });
-
-//     const { data } = await $authHost.post("api/movie", formData, {
-//       headers: {
-//         "Content-Type": "multipart/form-data",
-//       },
-//     });
-
-//     return data;
-//   } catch (error) {
-//     console.error(
-//       "Помилка при створенні фільму:",
-//       error.response?.data || error.message
-//     );
-//     throw error;
-//   }
-// };
-
 export const createMovie = async (movieData) => {
   try {
     const formData = new FormData();
@@ -68,10 +41,6 @@ export const createMovie = async (movieData) => {
   }
 };
 
-// export const fetchMovies = async () => {
-//   const { data } = await $authHost.get("api/movie");
-//   return data;
-// };
 export const fetchMovies = async () => {
   try {
     const { data } = await $authHost.get("api/movie"); // или "api/movies"
@@ -82,24 +51,6 @@ export const fetchMovies = async () => {
   }
 };
 
-// export const fetchMovieById = async (id) => {
-//   try {
-//     const { data } = await $authHost.get(`/api/movie/${id}`, {
-//       params: { includeGenres: true },
-//       validateStatus: (status) => status < 500, // Не считать 404 ошибкой
-//     });
-
-//     if (!data) throw new Error(`Movie ${id} not found`);
-//     return data;
-//   } catch (error) {
-//     console.error("Error details:", {
-//       url: error.config?.url,
-//       status: error.response?.status,
-//       data: error.response?.data,
-//     });
-//     throw error;
-//   }
-// };
 export const fetchMovieById = async (id) => {
   try {
     const { data } = await $authHost.get(`/api/movie/${id}`, {
@@ -129,3 +80,23 @@ export async function getMovies() {
   const data = await response.json();
   return data;
 }
+
+export const patchMovie = async (movieId, partialData) => {
+  try {
+    const response = await $authHost.patch(`api/movie/${movieId}`, partialData);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при частичном обновлении:", error);
+    throw error;
+  }
+};
+
+export const deleteMovie = async (id) => {
+  try {
+    const response = await $authHost.delete(`api/movie/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error("Ошибка при удалении фильма:", error);
+    throw error;
+  }
+};

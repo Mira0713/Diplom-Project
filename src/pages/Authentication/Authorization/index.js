@@ -1,6 +1,10 @@
-import { registration, login } from "../../../http/userApi";
 import "./styles.scss";
+import { registration, login } from "../../../http/userApi";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { routeMain as routeMainPage } from "pages/MainPage";
+import { toast, Bounce } from "react-toastify";
+import useCurrentUser from "../../../hooks/useCurrentUser";
 
 const Authorization = () => {
   const [activeTab, setActiveTab] = useState("Auth");
@@ -8,16 +12,44 @@ const Authorization = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { setCurrentUser } = useCurrentUser();
+  const navigateToMain = useNavigate();
+  const notify = (message) => toast(message);
+
   const click = async (e) => {
     console.log(e);
     e.preventDefault();
+
     if (activeTab === "Auth") {
       const response = await login(name, email, password);
+      if (!response.success) return;
+
+      setCurrentUser(response.data);
+      toast.success("Successful authorization!", {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        transition: Bounce,
+      });
+
+      //notify("Successful authorization!");
       console.log(response);
     } else {
       const response = await registration(name, email, password);
+      if (!response.success) return;
+
+      setCurrentUser(response.data);
+
+      toast.success("Successful registration!");
+
       console.log(response);
     }
+    navigateToMain(routeMainPage());
   };
   return (
     <div className="authentication">

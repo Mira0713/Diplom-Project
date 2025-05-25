@@ -1,5 +1,6 @@
 import "./styles.scss";
 import { Route, Routes, Navigate } from "react-router-dom";
+import { useEffect } from "react";
 
 import Header from "Header";
 import Footer from "Footer";
@@ -12,8 +13,15 @@ import FilmsListPage, {
 import AdminPanelPage, {
   routeMain as routeAdminPanelPage,
 } from "pages/AdminPanelPage";
+import useCurrentUser from "../hooks/useCurrentUser";
 
 const AppContent = () => {
+  const { authUser } = useCurrentUser();
+
+  useEffect(() => {
+    authUser();
+  }, []);
+
   return (
     <div className="mainWrapper">
       <Header />

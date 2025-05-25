@@ -18,11 +18,18 @@
   border-style: solid none solid none;
 
   .commentItem {
-    margin-bottom: 15px;
+    display: flex;
 
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 6px;
+    border-radius: 6px;
+    &:hover {
+      background-color: #4c4c52;
+    }
     .userInfo {
       display: flex;
-      align-items: center;
+      // align-items: center;
       gap: 10px;
       margin-bottom: 10px;
 
@@ -31,20 +38,26 @@
         height: 35px;
         border-radius: 50%;
         background-color: #e0e0e0;
+        margin-top: 4px;
         margin-right: 10px; // Отступ между аватаром и именем
         flex-shrink: 0;
       }
-
+    }
+    .commentData {
       .userName {
         margin-bottom: 0; // Убираем старый отступ
       }
-    }
-
-    .commentDescription {
-      font-size: 14px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      margin-left: 42px; // 32px (аватар) + 10px (gap)
+      .commentDescription {
+        font-size: 14px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        //margin-left: 42px; // 32px (аватар) + 10px (gap)
+      }
+      .commentTime {
+        font-weight: 500;
+        font-size: 14px;
+        color: #009688;
+      }
     }
   }
 }

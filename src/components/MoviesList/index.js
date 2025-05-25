@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
-import MoviesItem from "./components/MoviesItem";
 import { fetchMovies } from "../../http/movieApi";
+import MoviesItem from "./components/MoviesItem";
+import MoviesCarousel from "../MoviesCarousel";
+
 import "./styles.scss";
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
@@ -28,11 +30,6 @@ const MoviesList = () => {
   if (!movies.length) return <div className="no-movies">No movies found</div>;
 
   return (
-    // <div className="moviesList">
-    //   {props.list.map((movies) => (
-    //     <MoviesItem key={movies.id} item={movies} />
-    //   ))}
-    // </div>
     <div className="moviesList">
       {movies.map((movie) => (
         <MoviesItem key={movie.id} item={movie} />

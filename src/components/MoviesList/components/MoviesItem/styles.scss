@@ -1,6 +1,6 @@
 .moviesItem {
-  max-height: 360px;
-  height: 360px;
+  max-height: 380px;
+  height: 380px;
   max-width: 1140px;
   display: flex;
   flex-direction: row;
@@ -21,8 +21,8 @@
     }
   }
   img {
-    height: 360px;
-    width: 260px;
+    height: 380px;
+    width: 280px;
     flex-shrink: 0;
     border-radius: 5px;
   }
@@ -64,7 +64,7 @@
       justify-content: space-between;
       align-items: baseline;
       display: -webkit-box;
-      -webkit-line-clamp: 4; // количество строк
+      -webkit-line-clamp: 2; // количество строк
       -webkit-box-orient: vertical;
       overflow: hidden;
     }

@@ -16,22 +16,27 @@ const FilmsDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    const loadMovie = async () => {
-      try {
-        setLoading(true);
-        console.log(`Trying to fetch movie ID: ${id}`);
-        const data = await fetchMovieById(id);
-        console.log("Received data:", data);
-        setMovie(data);
-      } catch (err) {
-        setError(err.message);
-        console.error("Failed to load movies:", err);
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadMovie = async () => {
+    try {
+      setLoading(true);
+      console.log(`Trying to fetch movie ID: ${id}`);
+      const data = await fetchMovieById(id);
+      console.log("Received data:", data);
+      setMovie(data);
+    } catch (err) {
+      setError(err.message);
+      console.error("Failed to load movies:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
+  const updateRating = (average) => {
+    console.log("updateRating !!!", average);
+    setMovie({ ...movie, average_rating: average });
+  };
+
+  useEffect(() => {
     loadMovie();
   }, [id]);
 
@@ -55,7 +60,7 @@ const FilmsDetail = () => {
         <>
           <h1>{movie.title}</h1>
           <FilmDetailsBlock movie={movie} />
-          <ArticleNavigation movie={movie} />
+          <ArticleNavigation movie={movie} loadMovie={updateRating} />
         </>
       )}
       <ArticleFooter />

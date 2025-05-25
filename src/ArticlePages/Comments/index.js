@@ -1,12 +1,13 @@
 import "./styles.scss";
 import { useState, useEffect } from "react";
 import routeMain from "./routes";
-import { createComment, fetchComments } from "../../http/commentApi";
+import { fetchComments } from "../../http/commentApi";
 import AddComment from "./AddComment";
 import CommentsList from "./CommentsList";
+import Rating from "../Rating";
 import { useParams } from "react-router-dom";
 
-const Comments = () => {
+const Comments = ({ loadMovie = Function }) => {
   const [comments, setComments] = useState([]);
   const { id: movieId } = useParams();
 
@@ -34,7 +35,7 @@ const Comments = () => {
         </div>
       ))} */}
       <CommentsList comments={comments} />
-
+      <Rating movieId={movieId} loadMovie={loadMovie} />
       <AddComment onCommentAdded={handleCommentAdded} />
     </section>
   );

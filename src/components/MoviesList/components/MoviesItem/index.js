@@ -58,11 +58,11 @@ const MoviesItem = ({ item }) => {
             Director: <span>{item.director}</span>
           </p>
           <p>
-            Rating: <span>{item.rating}</span>
+            Rating: <span>{item.average_rating}</span>
           </p>
           <p>
             Duration:{" "}
-            <span>{item.duration ? `${item.duration} h` : "N/A"}</span>
+            <span>{item.duration ? `${item.duration} min` : "N/A"}</span>
           </p>
         </div>
         <div className="moviesItemDescription">

@@ -7,7 +7,7 @@ import { createGenre, getGenres } from "../../http/genreApi"; // Цю функц
 
 import { fetchGenres } from "../../http/genreApi";
 import { createMovie } from "../../http/movieApi";
-import { fetchMovies, getMovies } from "../../http/movieApi"; // додати імпорт, функцію я нижче дам
+import { fetchMovies, getMovies, deleteMovie } from "../../http/movieApi"; // додати імпорт, функцію я нижче дам
 
 const AdminPanelPage = () => {
   const [movie, setMovie] = useState({
@@ -96,6 +96,23 @@ const AdminPanelPage = () => {
     }
   };
 
+  const handleDeleteMovie = async (movieId) => {
+    if (window.confirm("Вы точно хотите удалить этот фильм?")) {
+      try {
+        await deleteMovie(movieId);
+        setMovies((prevMovies) =>
+          prevMovies.filter((movie) => movie.id !== movieId)
+        );
+        alert("Фильм успешно удален");
+        // Обновляем список фильмов:
+        fetchMovies();
+      } catch (error) {
+        console.error("Ошибка при удалении фильма:", error);
+        alert("Не удалось удалить фильм");
+      }
+    }
+  };
+
   const handleChange = (e) => {
     const { name, value, files, options } = e.target;
 
@@ -162,7 +179,7 @@ const AdminPanelPage = () => {
           "year",
           "country",
           "director",
-          "rating",
+          // "rating",
           "duration",
           "premiere",
           "actors",
@@ -208,7 +225,7 @@ const AdminPanelPage = () => {
               console.error("Full error:", error); // Логируем полную ошибку
               console.error("Error response:", error.response); // Логи ответа сервера
               console.error("Помилка при створенні жанру:", error);
-              // Можно добавить уведомление пользователю
+
               return null;
             }
           }}
@@ -270,7 +287,6 @@ const AdminPanelPage = () => {
                   </h3>
                   <p>
                     <strong>Genre:</strong>{" "}
-                    {/*Array.isArray(m.genre) ? m.genre.join(", ") : m.genre*/}
                     {m.genres?.length > 0
                       ? m.genres.map((g) => g.name).join(", ")
                       : "No genres specified"}
@@ -280,7 +296,6 @@ const AdminPanelPage = () => {
                   </p>
                   <p>
                     <strong>Actors:</strong>{" "}
-                    {/* {Array.isArray(m.actors) ? m.actors.join(", ") : m.actors} */}
                     {typeof m.actors === "string"
                       ? m.actors
                       : Array.isArray(m.actors)
@@ -306,6 +321,12 @@ const AdminPanelPage = () => {
                       Watch Trailer
                     </a>
                   </p>
+                  <button
+                    onClick={() => handleDeleteMovie(m.id)}
+                    className="delete-button"
+                  >
+                    Delete
+                  </button>
                 </div>
               );
             })
