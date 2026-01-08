@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import Header from "Header";
 import Footer from "Footer";
 import MainPage, { routeMain as routeMainPage } from "pages/MainPage";
+import MoviesPage, { routeMain as routeMoviesPage } from "pages/MoviesPage";
 import Contacts, { routeMain as routeContacts } from "pages/Authentication";
 import FilmsDetail, { routeMain as routeFilmsDetail } from "pages/FilmsDetail";
 import FilmsListPage, {
@@ -28,6 +29,7 @@ const AppContent = () => {
       <main>
         <Routes>
           <Route path={routeMainPage()} element={<MainPage />} />
+          <Route path={routeMoviesPage()} element={<MoviesPage />} />
           <Route path={routeContacts()} element={<Contacts />} />
           <Route path={routeFilmsDetail()} element={<FilmsDetail />} />
           <Route path={routeFilmsListPage()} element={<FilmsListPage />} />

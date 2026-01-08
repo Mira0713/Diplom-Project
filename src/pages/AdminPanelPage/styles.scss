@@ -82,9 +82,13 @@
     color: #ffffff;
     cursor: pointer;
   }
-
+  .select__input {
+    color: white !important;
+  }
   .select__option--is-focused {
     background-color: #3c3c44;
+    color: #ffffff;
+    color: white !important;
   }
 
   .select__option--is-selected {

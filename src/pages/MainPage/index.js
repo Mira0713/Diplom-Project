@@ -1,13 +1,11 @@
 import "./styles.scss";
 import { useEffect, useState } from "react";
 import routeMain from "./routes";
-
 import PageTitle from "components/PageTitle";
-
 import MoviesList from "components/MoviesList";
+import FilterPanel from "components/FilterPanel";
 
 import filmsListMocks from "fixtures/filmsListMocks";
-import UserPage from "../UserPage";
 import MoviesCarousel from "../../components/MoviesCarousel";
 import { fetchMovies } from "../../http/movieApi";
 
@@ -31,14 +29,14 @@ const MainPage = () => {
     loadData();
   }, []);
 
-  if (loading) return <div className="loading">Загрузка...</div>;
+  if (loading) return <div className="loading">Loading...</div>;
   return (
     <div>
       {/* <UserPage /> */}
-      <MoviesCarousel movies={popularMovies} title="Популярные фильмы" />
+      <MoviesCarousel movies={popularMovies} title="Popular movies" />
       <section className="mainPage">
         <PageTitle title={<h2>Home/Movies</h2>} />
-
+        <FilterPanel />
         {filmsListMocks.length > 0 && (
           <MoviesList list={filmsListMocks.slice(0, 4)} />
         )}

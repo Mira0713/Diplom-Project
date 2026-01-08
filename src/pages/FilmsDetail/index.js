@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { fetchMovieById } from "../../http/movieApi";
+import { NavLink } from "react-router-dom";
 import "./styles.scss";
 import routeMain from "./routes";
 import FilmDetailsBlock from "./FilmDetailsBlock";
-
+import { routeMain as routeMainPage } from "pages/MainPage";
 import ArticleFooter from "../../../src/ArticleFooter";
 import ArticleNavigation from "../../../src/ArticleNavigation";
 
@@ -58,7 +59,13 @@ const FilmsDetail = () => {
       {/* <ArticleNavigation movie={movie} /> */}
       {movie && ( // Проверка на наличие данных
         <>
-          <h1>{movie.title}</h1>
+          <h1>
+            {" "}
+            <NavLink to={routeMainPage()} end className="movieTitle">
+              Home /{" "}
+            </NavLink>
+            {movie.title}
+          </h1>
           <FilmDetailsBlock movie={movie} />
           <ArticleNavigation movie={movie} loadMovie={updateRating} />
         </>

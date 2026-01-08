@@ -3,11 +3,11 @@ import routeMain from "./routes";
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 import CreatableSelect from "react-select/creatable";
-import { createGenre, getGenres } from "../../http/genreApi"; // Цю функцію треба створити
+import { createGenre, getGenres } from "../../http/genreApi";
 
 import { fetchGenres } from "../../http/genreApi";
 import { createMovie } from "../../http/movieApi";
-import { fetchMovies, getMovies, deleteMovie } from "../../http/movieApi"; // додати імпорт, функцію я нижче дам
+import { fetchMovies, getMovies, deleteMovie } from "../../http/movieApi";
 
 const AdminPanelPage = () => {
   const [movie, setMovie] = useState({
@@ -20,7 +20,7 @@ const AdminPanelPage = () => {
     duration: "",
     premiere: "",
     actors: "",
-    poster: null, // файл
+    poster: null, // Це файл!!!
     trailer: "",
     description: "",
   });
@@ -30,7 +30,6 @@ const AdminPanelPage = () => {
     setMovie((prev) => ({ ...prev, genreIds: selectedGenreIds }));
   };
 
-  // Создание нового жанра
   const handleCreateGenre = async (inputValue) => {
     try {
       const newGenre = await createGenre(inputValue);
@@ -48,7 +47,6 @@ const AdminPanelPage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Удалите дублирующие useEffect
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
@@ -74,16 +72,13 @@ const AdminPanelPage = () => {
 
     loadData();
   }, []);
-  // useEffect(() => {
-  //   fetchGenres().then((data) => setGenres(data)); ////////////////
-  // }, []);
 
   const loadGenres = async () => {
     try {
       const data = await fetchGenres();
       setGenres(data);
     } catch (error) {
-      console.error("❌ Помилка при завантаженні жанрів:", error);
+      console.error("❌ Error loading genres:", error);
     }
   };
 
@@ -92,23 +87,23 @@ const AdminPanelPage = () => {
       const data = await fetchMovies();
       setMovies(data);
     } catch (error) {
-      console.error("❌ Помилка при завантаженні фільмів:", error);
+      console.error("❌ Error loading movies:", error);
     }
   };
 
   const handleDeleteMovie = async (movieId) => {
-    if (window.confirm("Вы точно хотите удалить этот фильм?")) {
+    if (window.confirm("Are you sure you want to delete this movie?")) {
       try {
         await deleteMovie(movieId);
         setMovies((prevMovies) =>
           prevMovies.filter((movie) => movie.id !== movieId)
         );
-        alert("Фильм успешно удален");
-        // Обновляем список фильмов:
+        alert("The film was successfully deleted");
+
         fetchMovies();
       } catch (error) {
-        console.error("Ошибка при удалении фильма:", error);
-        alert("Не удалось удалить фильм");
+        console.error("Error deleting movie:", error);
+        alert("Failed to delete movie");
       }
     }
   };
@@ -120,7 +115,7 @@ const AdminPanelPage = () => {
       setMovie((prev) => ({ ...prev, poster: files[0] }));
       setPreviewPoster(URL.createObjectURL(files[0]));
     } else if (name === "genre") {
-      // Обробка multiple select
+      //  multiple select
       const selectedGenres = Array.from(options)
         .filter((option) => option.selected)
         .map((option) => option.value);
@@ -137,11 +132,9 @@ const AdminPanelPage = () => {
         year: parseInt(movie.year),
         rating: parseFloat(movie.rating),
         actors: movie.actors.split(",").map((a) => a.trim()),
-        genreIds: movie.genreIds, // !!! важливо: перекладаємо genre -> genres
+        genreIds: movie.genreIds, // !!! важливо:  genre -> genres
       };
 
-      // await createMovie(formMovie);
-      //await loadMovies(); // оновлюємо список після додавання
       const newMovie = await createMovie(formMovie);
       setMovies((prevMovies) => [...prevMovies, newMovie]);
       // Очищення форми
@@ -179,7 +172,6 @@ const AdminPanelPage = () => {
           "year",
           "country",
           "director",
-          // "rating",
           "duration",
           "premiere",
           "actors",
@@ -222,18 +214,18 @@ const AdminPanelPage = () => {
               }));
               return { value: newGenre.id, label: newGenre.name };
             } catch (error) {
-              console.error("Full error:", error); // Логируем полную ошибку
-              console.error("Error response:", error.response); // Логи ответа сервера
-              console.error("Помилка при створенні жанру:", error);
+              console.error("Full error:", error);
+              console.error("Error response:", error.response);
+              console.error("Error creating genre:", error);
 
               return null;
             }
           }}
           className="basic-multi-select"
           classNamePrefix="select"
-          placeholder="Виберіть або додайте жанри..."
-          noOptionsMessage={() => "Введіть назву нового жанру"}
-          formatCreateLabel={(inputValue) => `Створити "${inputValue}"`}
+          placeholder="Select or add genres..."
+          noOptionsMessage={() => "Enter a name for the new genre"}
+          formatCreateLabel={(inputValue) => `Create "${inputValue}"`}
         />
         <input
           type="file"
