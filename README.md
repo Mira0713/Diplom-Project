@@ -1,11 +1,11 @@
 # Description
-#Movie Information Portal
+# Movie Information Portal
 
 This project is a web-based movie information portal developed as a Bachelor’s thesis project in Software Engineering.
 
 The system allows users to browse a movie catalog, view detailed information about movies, leave ratings and comments, and receive recommendations. The project follows a client–server architecture with a separate frontend and backend, as well as a relational database.
 
-#Features
+# Features
 User registration and authentication
 
 JWT-based authorization
@@ -22,9 +22,9 @@ Admin functionality for managing movie content
 
 Secure password storage using hashing
 
-#Technologies Used
+# Technologies Used
 
-#Screenshots
+#S creenshots
 
 # Getting Started with Create React App
 
