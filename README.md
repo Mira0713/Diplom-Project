@@ -35,14 +35,14 @@ Secure password storage using hashing
 <img width="1715" height="1128" alt="image" src="https://github.com/user-attachments/assets/946baf73-7612-42f4-9cb3-0901ac81505f" />
 ### Notification of successful registration
 <img width="2183" height="1163" alt="image" src="https://github.com/user-attachments/assets/454d2d75-3d6c-433a-8fee-4adacb5e48c5" />
-
+## User profile
 <img width="1848" height="1155" alt="image" src="https://github.com/user-attachments/assets/371ec2ac-6c8d-4c0b-934f-7b1d34520dd5" />
-
+## Only authorized users can leave ratings and comments.
 <img width="1913" height="1204" alt="image" src="https://github.com/user-attachments/assets/9c9478a7-c258-4de1-9ced-b8a584093c81" />
 
 ## Admin panel
 <img width="1676" height="1217" alt="image" src="https://github.com/user-attachments/assets/2b0e288f-dacb-424d-9b5e-4b84d6580773" />
-
+## Editable Movie List
 <img width="1454" height="1075" alt="image" src="https://github.com/user-attachments/assets/76b751b8-81ed-493c-9d24-d55964a4b647" />
 
 
