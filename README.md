@@ -24,7 +24,9 @@ Secure password storage using hashing
 
 # Technologies Used
 
-#S creenshots
+# Screenshots
+<img width="1831" height="1143" alt="image" src="https://github.com/user-attachments/assets/16a8da56-4d29-46d6-b75c-b42d2ec013ce" />
+
 
 # Getting Started with Create React App
 
